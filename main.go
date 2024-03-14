@@ -9,5 +9,10 @@ func main() {
 		return c.SendString("test test test")
 	})
 
-	app.Listen(":3000")
+	app.Get("/:name", func(c *fiber.Ctx) error {
+        name := c.Params("name")
+        return c.SendString("hello: " + name)
+    })
+
+	app.Listen(":8000")
 }

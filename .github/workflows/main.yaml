@@ -9,6 +9,8 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   GITHUB_ENV: test-tag
 
+permissions: write-all
+
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest

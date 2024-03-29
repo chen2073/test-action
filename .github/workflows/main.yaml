@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  GITHUB_ENV: abc
+  GITHUB_ENV: test-tag
 
 jobs:
   build-and-push-image:
@@ -32,18 +32,18 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Get Commit SHA
-        shell: bash
-        run: |
-          echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+      # - name: Get Commit SHA
+      #   shell: bash
+      #   run: |
+      #     echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          # tags: ${{ env.GITHUB_ENV }}
+          # tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.GITHUB_ENV }}
           labels: ${{ steps.meta.outputs.labels }}
 
       # - name: Random Number Generator

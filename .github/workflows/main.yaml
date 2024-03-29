@@ -12,7 +12,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
     steps:
       - name: Checkout
@@ -44,6 +44,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           # tags: ${{ env.GITHUB_ENV }}
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
       # - name: Random Number Generator
       #   uses: ./

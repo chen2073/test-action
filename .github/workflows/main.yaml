@@ -25,11 +25,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker Metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_NAME }}
+      # - name: Docker Metadata
+      #   id: meta
+      #   uses: docker/metadata-action@v5
+      #   with:
+      #     images: ${{ env.IMAGE_NAME }}
 
       # - name: Get Commit SHA
       #   shell: bash
@@ -41,11 +41,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          # tags: ${{ env.GITHUB_ENV }}
-          labels: ${{ steps.meta.outputs.labels }}
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          # tags: ${{ steps.meta.outputs.tags }}
+          tags: user/app:latest
+          # labels: ${{ steps.meta.outputs.labels }}
 
       # - name: Random Number Generator
       #   uses: ./

@@ -19,4 +19,6 @@ FROM alpine:3.18 as production
 
 COPY --from=builder /app/main /app/main
 
+EXPOSE 8000
+
 CMD ["/app/main"]

@@ -6,7 +6,7 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("hello aaron")
+		return c.SendString("hello aaron, jake")
 	})
 
 	app.Get("/:name", func(c *fiber.Ctx) error {

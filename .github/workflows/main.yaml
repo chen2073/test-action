@@ -2,7 +2,7 @@ name: test github action
 
 on:
   push:
-    branches: ['main']
+    branches: ['dev']
 
 env:
   IMAGE_NAME: ${{ github.repository }}

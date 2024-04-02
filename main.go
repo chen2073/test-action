@@ -88,6 +88,15 @@ func main() {
 		return c.SendStatus(fiber.StatusOK)
 	})
 
+	app.Get("/ping_db", func(c *fiber.Ctx) error {
+		err := testClient(client)
+		if err != nil {
+			return c.SendStatus(fiber.StatusInternalServerError)
+		}
+
+		return c.SendStatus(fiber.StatusOK)
+	})
+
 	app.Get("/healthz", func(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)
 	})

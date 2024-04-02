@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:442169762964:task-definition/go-api:2",
+    "taskDefinitionArn": "",
     "containerDefinitions": [
         {
             "name": "test-action",
-            "image": "442169762964.dkr.ecr.us-east-2.amazonaws.com/chen2073:latest",
+            "image": "",
             "cpu": 0,
             "portMappings": [
                 {

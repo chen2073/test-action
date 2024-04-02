@@ -31,7 +31,11 @@
                 },
                 "secretOptions": []
             },
-            "systemControls": []
+            "systemControls": [],
+            "secrets": [{
+                "name": "DB",
+                "valueFrom": "arn:aws:secretsmanager:us-east-2:442169762964:secret:mongo-e2ZGLs"
+            }]
         }
     ],
     "family": "go-api",

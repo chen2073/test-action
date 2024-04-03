@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: test-action:latest
+    container_name: test-action-api
     ports:
       - 8000:8000
     env_file:
